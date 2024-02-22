@@ -5,6 +5,38 @@
             "nome": "Gustavo",
             "login": "admin",
             "password": "admin"
+        },
+        {
+            "id": 2,
+            "nome": "Kendi",
+            "login": "Kendi admin",
+            "password": "123"
+        }
+    ],
+    "cards": [
+        {
+            "id": 1,
+            "title": "Home",
+            "img": "<AnFilledHomes>",
+            "to": "/Home"
+        },
+        {
+            "id": 2,
+            "title": "Cadastros",
+            "img": "FlFilledPersonAdd",
+            "to": "/Cadastros"
+        },
+        {
+            "id": 3,
+            "title": "Cardapio",
+            "img": "MdTwoToneRestaurantMenu",
+            "to": "/Cardapio"
+        },
+        {
+            "id": 4,
+            "title": "Pedidos",
+            "img": "FlFilledTextBulletListSquare",
+            "to": "/Pedidos"
         }
     ],
     "restaurantes": [
