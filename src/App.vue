@@ -1,18 +1,31 @@
 <template>
   <header>
-    <div>
-      <Login/>
+    <div class="wrapper">
+      <nav>
+      </nav>
     </div>
   </header>
+
+  <RouterView />
 </template>
 
 <script>
-import Login from "./views/index.vue";
-
 export default {
   name: "App",
-  components: {
-    Login
+  data() {
+    return {};
   },
+  mounted() {
+    this.$router.push('/login')
+  }
 };
 </script>
+
+<style>
+
+  main{
+    margin-left: 260px;
+  }
+
+</style>
+
