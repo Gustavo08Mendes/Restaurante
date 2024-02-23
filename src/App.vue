@@ -25,6 +25,7 @@ export default {
 
   main{
     margin-left: 260px;
+    text-align: center;
   }
 
 </style>

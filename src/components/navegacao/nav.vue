@@ -11,14 +11,14 @@
           <h1>Restaurante</h1>
         </header>
         <div class="menu">
-          <RouterLink class="link" to="/Home"><AnFilledHome />Home</RouterLink>
+          <RouterLink class="link" to="/painel"><AnFilledHome />Painel</RouterLink>
           <RouterLink class="link" to="/cadastros"
             ><FlFilledPersonAdd />Cadastros</RouterLink
           >
           <RouterLink class="link" to="/cardapio"
             ><MdTwoToneRestaurantMenu />Cardapio</RouterLink
           >
-          <RouterLink class="link" to="/cardapio"
+          <RouterLink class="link" to="/pedidos"
             ><FlFilledTextBulletListSquare />Pedidos</RouterLink
           >
           <RouterLink class="link" to="/login"
@@ -132,3 +132,4 @@ svg {
   font-size: 40px;
 }
 </style>
+

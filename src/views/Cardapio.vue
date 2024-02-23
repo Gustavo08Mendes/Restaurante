@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <h1>pagina do cardapio</h1>
-    </div>
+    <main>
+        <div>
+            <h1>Cardapio</h1>
+        </div>
+    </main> 
     <Nav />
 </template>
 

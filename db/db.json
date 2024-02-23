@@ -1,74 +1,88 @@
 {
-    "usuarios": [
-        {
-            "id": 1,
-            "nome": "Gustavo",
-            "login": "admin",
-            "password": "admin"
-        },
-        {
-            "id": 2,
-            "nome": "Kendi",
-            "login": "Kendi admin",
-            "password": "123"
-        }
-    ],
-    "cards": [
-        {
-            "id": 1,
-            "title": "Home",
-            "img": "<AnFilledHomes>",
-            "to": "/Home"
-        },
-        {
-            "id": 2,
-            "title": "Cadastros",
-            "img": "FlFilledPersonAdd",
-            "to": "/Cadastros"
-        },
-        {
-            "id": 3,
-            "title": "Cardapio",
-            "img": "MdTwoToneRestaurantMenu",
-            "to": "/Cardapio"
-        },
-        {
-            "id": 4,
-            "title": "Pedidos",
-            "img": "FlFilledTextBulletListSquare",
-            "to": "/Pedidos"
-        }
-    ],
-    "restaurantes": [
-        {
-            "id": 1,
-            "nome": "",
-            "endereco": "",
-            "taxa": null
-        }
-    ],
-    "admins": [
-        {
-            "id": 1,
-            "id_usuario": 1,
-            "id_restaurante": 1
-        }
-    ],
-    "item": [
-        {
-            "id": 1,
-            "nome": "",
-            "preco": null,
-            "descricao": "",
-            "id_restaurante": 1
-        }
-    ],
-    "clientes": [
-        {
-            "id": 1,
-            "id_usuario": 1,
-            "mesa": "",
-            "data": ""
-        }
-    ]
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Gustavo",
+      "login": "admin",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "nome": "Kendi",
+      "login": "Kendi admin",
+      "password": "123"
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Home",
+      "img": "<AnFilledHomes>",
+      "to": "/Home"
+    },
+    {
+      "id": 2,
+      "title": "Cadastros",
+      "img": "FlFilledPersonAdd",
+      "to": "/Cadastros"
+    },
+    {
+      "id": 3,
+      "title": "Cardapio",
+      "img": "MdTwoToneRestaurantMenu",
+      "to": "/Cardapio"
+    },
+    {
+      "id": 4,
+      "title": "Pedidos",
+      "img": "FlFilledTextBulletListSquare",
+      "to": "/Pedidos"
+    }
+  ],
+  "restaurantes": [
+    {
+      "id": 1,
+      "nome": "",
+      "endereco": "",
+      "taxa": null
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "id_restaurante": 1
+    }
+  ],
+  "item": [
+    {
+      "id": "4db5",
+      "nome": "Feijão",
+      "infoemacoes": "Prato de Feijão",
+      "preco": "12,00R$",
+      "tipo_item": "acompanhamento"
+    },
+    {
+      "id": "b008",
+      "nome": "Prato frango assado",
+      "infoemacoes": "Prato acompanhado com arroz, feijão, fritas e salada",
+      "preco": "22,00R$",
+      "tipo_item": "Pratos"
+    },
+    {
+      "id": "e6f1",
+      "nome": "gustavo",
+      "infoemacoes": "Prato de Feijão",
+      "preco": "12,00R$",
+      "tipo_item": "acompanhamento"
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "mesa": "",
+      "data": ""
+    }
+  ]
 }
