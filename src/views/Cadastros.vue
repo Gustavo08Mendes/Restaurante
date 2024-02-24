@@ -1,8 +1,8 @@
 <template>
     <main>
         <div>
-            <Cadastro_itens v-show="cadastro_itens === true" />
-            <Cadastro_adm v-show="cadastro_adm === true" />
+            <Cadastro_itens v-if="cadastro_itens === true" />
+            <Cadastro_adm v-else />
         </div>
     </main> 
     <Nav />
@@ -16,8 +16,7 @@
         name: "Cadastros",
         data() {
             return {
-                cadastro_itens: true,
-                cadastro_adm: false
+                cadastro_itens: true
             }    
         },
         components: {

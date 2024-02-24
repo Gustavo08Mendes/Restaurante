@@ -5,16 +5,16 @@
         Autenticar <br />
         Usuário
       </h1>
-      <form @submit="login">
+      <form @submit="confirmLogin">
         <div class="form-group">
-          <label for="email">Login</label>
+          <label for="login">Login</label>
           <input
             type="text"
             class="form-control"
-            id="email"
-            aria-describedby="email"
-            name="email"
-            v-model="email"
+            id="login"
+            aria-describedby="login"
+            name="login"
+            v-model="login"
             placeholder="Login"
           />
         </div>
@@ -43,20 +43,22 @@ export default {
   data() {
     return {
       senha: "admin",
-      email: "admin"
+      login: "admin"
     };
   },
   methods: {
-    async login(e) {
+    async confirmLogin(e) {
       e.preventDefault();
       const senha = this.senha;
-      const email = this.email;
+      const login = this.login;
 
       const req = await fetch("http://localhost:3000/usuarios");
       const data = await req.json();
 
+      console.log(data[0].login, data[0].senha);
+
       for (let i = 0; i < data.length; i++) {
-        if (data[i].login == email && data[i].password == senha) {
+        if (data[i].login == login && data[i].senha == senha) {
           localStorage.setItem("nome", data[i].nome);
           this.$router.push('/painel')
         }

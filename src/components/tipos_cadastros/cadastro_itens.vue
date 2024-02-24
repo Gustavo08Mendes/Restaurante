@@ -43,7 +43,7 @@
             v-model="tipo_item"
           />
           <div class="cadastro_tipo_item">
-            <button type="submit" class="bnt-add-tipo">
+            <button class="bnt-add-tipo" @click="add_tipo_item">
               <AnOutlinedPlusCircle />
             </button>
           </div>
@@ -79,25 +79,46 @@ export default {
       const preco = this.preco;
       const tipo_item = this.tipo_item;
 
-      const data ={
+      const data = {
         nome,
         infoemacoes,
         preco,
-        tipo_item
+        tipo_item,
+      };
+
+      const dataJson = JSON.stringify(data);
+
+      await fetch("http://localhost:3000/item", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+
+      this.nome = "";
+      this.infoemacoes = "";
+      this.preco = "";
+      this.tipo_item = "";
+    },
+    async addTipo_item() {
+      const req = await fetch("http://localhost:3000/tipo_item");
+      const quant_data = await req.json();
+
+      const tipo = this.tipo_item;
+      for (let i = 0; i < quant_data.length; i++) {
+        var id = i;
       }
 
-    const dataJson = JSON.stringify(data)    
+      const data = {
+        tipo,
+        id
+      };
+      const dataJson = JSON.stringify(data);
 
-    await fetch("http://localhost:3000/item", {
-    method: "POST",
-    headers: { "Content-Type" : "application/json" },
-    body: dataJson
-    });
-
-    this.nome = "";
-    this.infoemacoes = "";
-    this.preco = "";
-    this.tipo_item = "";
+      await fetch("http://localhost:3000/tipo_item", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
     },
   },
 };
@@ -127,7 +148,7 @@ export default {
 .form {
   margin-top: 80px;
 }
-form{
-    text-align: left;
+form {
+  text-align: left;
 }
 </style>

@@ -1,39 +1,41 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nome": "Gustavo",
+      "id": "98d2",
+      "nome": "gustavo",
       "login": "admin",
-      "password": "admin"
+      "senha": "admin",
+      "status": "adm"
     },
     {
-      "id": 2,
-      "nome": "Kendi",
-      "login": "Kendi admin",
-      "password": "123"
+      "id": "39a6",
+      "nome": "Thamyres Bessa",
+      "senha": "0311",
+      "login": "Thaamybesa",
+      "status": "adm"
     }
   ],
   "cards": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Home",
       "img": "<AnFilledHomes>",
       "to": "/Home"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Cadastros",
       "img": "FlFilledPersonAdd",
       "to": "/Cadastros"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Cardapio",
       "img": "MdTwoToneRestaurantMenu",
       "to": "/Cardapio"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Pedidos",
       "img": "FlFilledTextBulletListSquare",
       "to": "/Pedidos"
@@ -41,7 +43,7 @@
   ],
   "restaurantes": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "",
       "endereco": "",
       "taxa": null
@@ -49,7 +51,7 @@
   ],
   "admins": [
     {
-      "id": 1,
+      "id": "1",
       "id_usuario": 1,
       "id_restaurante": 1
     }
@@ -63,23 +65,47 @@
       "tipo_item": "acompanhamento"
     },
     {
-      "id": "b008",
-      "nome": "Prato frango assado",
-      "infoemacoes": "Prato acompanhado com arroz, feijão, fritas e salada",
-      "preco": "22,00R$",
+      "id": "56a8",
+      "nome": "",
+      "infoemacoes": "",
+      "preco": "",
       "tipo_item": "Pratos"
     },
     {
-      "id": "e6f1",
-      "nome": "gustavo",
-      "infoemacoes": "Prato de Feijão",
-      "preco": "12,00R$",
+      "id": "923f",
+      "nome": "",
+      "infoemacoes": "",
+      "preco": "",
       "tipo_item": "acompanhamento"
+    },
+    {
+      "id": "ac4b",
+      "nome": "Macarão",
+      "infoemacoes": "acompanha molho",
+      "preco": "20,00R$",
+      "tipo_item": "Pratos"
+    },
+    {
+      "id": "b839",
+      "nome": "",
+      "infoemacoes": "",
+      "preco": "",
+      "tipo_item": ""
+    },
+    {
+      "id": "e059",
+      "nome": "",
+      "infoemacoes": "",
+      "preco": "",
+      "tipo_item": ""
     }
+  ],
+  "tipo_item": [
+    {}
   ],
   "clientes": [
     {
-      "id": 1,
+      "id": "1",
       "id_usuario": 1,
       "mesa": "",
       "data": ""
