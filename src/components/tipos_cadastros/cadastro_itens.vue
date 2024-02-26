@@ -1,28 +1,61 @@
 <template>
   <div class="container">
     <h1>Cadastro de itens</h1>
+    <div>
+      <p></p>
+    </div>
     <div class="form">
+      <button @click="form_tipo" class="btn btn-primary">
+        Exibir cadastro tipo itens
+      </button>
+      <Cadastro_tipo v-show="cadastro_tipo_item == false" />
       <form @submit="criar_item">
         <div class="form-group">
           <label for="nome">Nome Item</label>
-          <input type="text" class="form-control" name="nome" v-model="nome" id="nome" />
+          <input
+            type="text"
+            class="form-control"
+            name="nome"
+            v-model="nome"
+            id="nome"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="infoemacoes">Informações</label>
-          <input type="text" class="form-control" id="infoemacoes" name="infoemacoes" v-model="infoemacoes" />
+          <input
+            type="text"
+            class="form-control"
+            id="infoemacoes"
+            name="infoemacoes"
+            v-model="infoemacoes"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="preco">Preço</label>
-          <input type="text" class="form-control" id="preco" name="preco" v-model="preco" />
+          <input
+            type="text"
+            class="form-control"
+            id="preco"
+            name="preco"
+            v-model="preco"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="tipo_item">Tipo de item</label>
-          <input type="text" class="form-control" id="tipo_item" name="tipo_item" v-model="tipo_item" />
-          <div class="cadastro_tipo_item">
-            <button class="bnt-add-tipo" @click="add_tipo_item">
-              <AnOutlinedPlusCircle />
-            </button>
-          </div>
+          <select @click="buscar_itens" id="tipo_item" class="form-control">
+            <option selected>Escolha o tipo do item</option>
+            <option
+              v-for="tipo_item in itens"
+              :key="tipo_item.id"
+              :value="tipo_item.tipo_item"
+              name="tipo_item"
+            >
+              {{ tipo_item.tipo_item }}
+            </option>
+          </select>
         </div>
         <div class="botao">
           <button type="submit" class="btn btn-primary">Criar Item</button>
@@ -34,6 +67,7 @@
 
 <script>
 import { AnOutlinedPlusCircle } from "@kalimahapps/vue-icons";
+import Cadastro_tipo from "./cadastro_tipo.vue";
 export default {
   name: "cadastro_itens",
   data() {
@@ -41,49 +75,27 @@ export default {
       nome: "",
       infoemacoes: "",
       preco: "",
-      tipo_item: "",
+      itens: [],
+      cadastro_tipo_item: true,
     };
   },
   components: {
     AnOutlinedPlusCircle,
+    Cadastro_tipo,
   },
   methods: {
     async criar_item(e) {
-
       e.preventDefault();
 
       const nome = this.nome;
       const infoemacoes = this.infoemacoes;
       const preco = this.preco;
-      const tipo_item = this.tipo_item;
+      const tipo_item = document.getElementById("tipo_item").value;
 
       //busca todos os tipos de item no banco
 
       const req = await fetch("http://localhost:3000/tipo_item");
       const data_id_tipo = await req.json();
-
-      //cadastra um novo tipo de item na tabela de tipos de items
-
-      const data_tipo_item = {
-        tipo_item
-      };
-
-      for (let t = 0; t < data_id_tipo.length; t++) {
-        if (data_id_tipo[t].tipo_item == tipo_item) {
-          var id = data_id_tipo[t].id;
-        }
-      }
-
-      if (id == undefined) {
-        const dataJson_tipo_item = JSON.stringify(data_tipo_item);
-
-        await fetch("http://localhost:3000/tipo_item", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: dataJson_tipo_item,
-        });
-      }
-
 
       //busaca o id do tipo de item
 
@@ -99,11 +111,10 @@ export default {
         nome,
         infoemacoes,
         preco,
-        id_tipo
+        id_tipo,
       };
 
       const dataJson = JSON.stringify(data);
-
 
       await fetch("http://localhost:3000/item", {
         method: "POST",
@@ -116,6 +127,21 @@ export default {
       this.preco = "";
       this.tipo_item = "";
     },
+    async buscar_itens() {
+      const req = await fetch("http://localhost:3000/tipo_item");
+      const data_id_tipo = await req.json();
+
+      this.itens = data_id_tipo.map((iten) => ({
+        id: iten.id,
+        tipo_item: iten.tipo_item,
+      }));
+    },
+    form_tipo() {
+      this.cadastro_tipo_item = !this.cadastro_tipo_item;
+    },
+  },
+  mounted() {
+    this.buscar_itens();
   },
 };
 </script>

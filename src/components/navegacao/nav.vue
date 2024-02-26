@@ -19,7 +19,7 @@
           <RouterLink v-if="verCadastros == true" @mouseover="verCadastros = true" class="link_subMenu" to="/cadastros?adm"
             ><FlFilledPersonAdd />Cadastros Adms</RouterLink
           >
-          <RouterLink class="link" to="/cardapio" @click=""
+          <RouterLink class="link" to="/cardapio"
             ><MdTwoToneRestaurantMenu />Cardápio</RouterLink
           >
           <RouterLink class="link" to="/pedidos"

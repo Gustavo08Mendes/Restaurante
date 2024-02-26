@@ -28,8 +28,6 @@
       async gerarCard() {
         const req = await fetch("http://localhost:3000/cards");
         const data = await req.json();
-
-        console.log(data);
   
         this.cards = data.map(card => ({
           to: card.to,

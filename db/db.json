@@ -51,122 +51,39 @@
   ],
   "item": [
     {
-      "id": "50b8",
-      "nome": "Macarrão",
-      "infoemacoes": "Vem com molho",
-      "preco": "25,00R$",
-      "id_tipo": "93a0"
+      "id": "50c8",
+      "nome": "Bolo",
+      "infoemacoes": "Feito a Mão",
+      "preco": "12,00R$",
+      "id_tipo": "72cf"
     },
     {
-      "id": "3314",
-      "nome": "pudim",
-      "infoemacoes": "De leite",
-      "preco": "12reais",
-      "id_tipo": "0d81"
+      "id": "e642",
+      "nome": "Bolos",
+      "infoemacoes": "VArioados tipos de bolos",
+      "preco": "22,00R$",
+      "id_tipo": "e93a"
     },
     {
-      "id": "fbd6",
-      "nome": "brigadeiro",
-      "infoemacoes": "Chocolate",
-      "preco": "8,00R$",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "7dde",
-      "nome": "wadwadaw",
+      "id": "5961",
+      "nome": "Teste",
       "infoemacoes": "teste",
-      "preco": "12reais",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "b6fe",
-      "nome": "wadwadaw",
-      "infoemacoes": "teste",
-      "preco": "12reais",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "c845",
-      "nome": "banoff",
-      "infoemacoes": "teste",
-      "preco": "12reais",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "4f34",
-      "nome": "wadwadaw",
-      "infoemacoes": "teste",
-      "preco": "12reais",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "6c56",
-      "nome": "Thamyres",
-      "infoemacoes": "teste",
-      "preco": "12reais"
-    },
-    {
-      "id": "d50f",
-      "nome": "Feijão",
-      "infoemacoes": "De leite",
-      "preco": "25,00R$"
-    },
-    {
-      "id": "7e25",
-      "nome": "Thamyres",
-      "infoemacoes": "teste",
-      "preco": "12reais"
-    },
-    {
-      "id": "bae5",
-      "nome": "Thamyres",
-      "infoemacoes": "teste",
-      "preco": "12reais"
-    },
-    {
-      "id": "4a02",
-      "nome": "Thamyres",
-      "infoemacoes": "teste",
-      "preco": "12reais",
-      "id_tipo": "a035"
-    },
-    {
-      "id": "72fd",
-      "nome": "bolo de baunilha",
-      "infoemacoes": "O bolo é de baunilha",
-      "preco": "23,00R$",
-      "id_tipo": "0d81"
-    },
-    {
-      "id": "3f8e",
-      "nome": "wadwadaw",
-      "infoemacoes": "De leite",
-      "preco": "12reais"
-    },
-    {
-      "id": "44b5",
-      "nome": "Coca",
-      "infoemacoes": "Refrigerante ",
-      "preco": "9,00R$",
-      "id_tipo": "ab45"
+      "preco": "12,00R$",
+      "id_tipo": "2fae"
     }
   ],
   "tipo_item": [
     {
-      "id": "93a0",
-      "tipo_item": "Prato da casa"
+      "id": "72cf",
+      "tipo_item": "Sobremesa"
     },
     {
-      "id": "0d81",
-      "tipo_item": "sobremesa"
+      "id": "e93a",
+      "tipo_item": "Combo"
     },
     {
-      "id": "a035",
-      "tipo_item": "combo"
-    },
-    {
-      "id": "ab45",
-      "tipo_item": "BEBIDA"
+      "id": "2fae",
+      "tipo_item": "Test"
     }
   ],
   "clientes": [

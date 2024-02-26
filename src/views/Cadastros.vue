@@ -30,7 +30,7 @@ export default {
         const chars = url_atual.split('?');
 
         if (window.location.href.indexOf("itens") == true) {
-            console.log("Encontrou!")
+            // console.log("Encontrou!")
         }
         if (chars[1] === "itens") {
             this.cadastro_itens = true;

@@ -55,8 +55,6 @@ export default {
       const req = await fetch("http://localhost:3000/usuarios");
       const data = await req.json();
 
-      console.log(data[0].login, data[0].senha);
-
       for (let i = 0; i < data.length; i++) {
         if (data[i].login == login && data[i].senha == senha) {
           localStorage.setItem("nome", data[i].nome);

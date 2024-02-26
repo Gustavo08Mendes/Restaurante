@@ -49,7 +49,6 @@ import { RouterLink, RouterView } from 'vue-router'
     },
     methods: {
       async login(e) {
-        console.log("logando");
         e.preventDefault();
         const senha = this.senha;
         const login = this.login;
