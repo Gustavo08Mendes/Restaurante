@@ -3,17 +3,16 @@
         <div>
             <h1>Pedidos</h1>
         </div>
-    </main> 
-    <Nav />
+        <Nav />
+    </main>
 </template>
 
 <script>
-    import Nav from "@/components/navegacao/nav.vue"
-
-    export default {
-        name: "Pedidos",
-        components: {
-            Nav
-        }
+import Nav from "@/components/navegacao/nav.vue";
+export default {
+    name: "pedidos",
+    components: {
+        Nav
     }
+}
 </script>

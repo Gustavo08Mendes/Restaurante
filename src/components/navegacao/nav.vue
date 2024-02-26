@@ -5,18 +5,22 @@
         v-if="verSideBar == false"
       />
     </button>
-    <nav v-if="verSideBar == true">
+    <nav v-if="verSideBar == true" @mouseleave="verCadastros = false">
       <div>
         <header>
           <h1>Restaurante</h1>
         </header>
         <div class="menu">
           <RouterLink class="link" to="/painel"><AnFilledHome />Painel</RouterLink>
-          <RouterLink class="link" to="/cadastros"
-            ><FlFilledPersonAdd />Cadastros</RouterLink
+          <button @mouseover="verCadastros = true" ><BxSolidAddToQueue  />Cadastros</button>
+          <RouterLink v-if="verCadastros == true" @mouseover="verCadastros = true" class="link_subMenu" to="/cadastros?itens"
+            ><FlFilledTrayItemAdd />Cadastros Itens</RouterLink
           >
-          <RouterLink class="link" to="/cardapio"
-            ><MdTwoToneRestaurantMenu />Cardapio</RouterLink
+          <RouterLink v-if="verCadastros == true" @mouseover="verCadastros = true" class="link_subMenu" to="/cadastros?adm"
+            ><FlFilledPersonAdd />Cadastros Adms</RouterLink
+          >
+          <RouterLink class="link" to="/cardapio" @click=""
+            ><MdTwoToneRestaurantMenu />Cardápio</RouterLink
           >
           <RouterLink class="link" to="/pedidos"
             ><FlFilledTextBulletListSquare />Pedidos</RouterLink
@@ -40,12 +44,15 @@ import {
   MiSolidDoorExit,
   MiSolidMenuExpandLeft,
   MiMenuExpandRight,
+  BxSolidAddToQueue,
+  FlFilledTrayItemAdd
 } from "@kalimahapps/vue-icons";
 export default {
   name: "Nav",
   data() {
     return {
       verSideBar: true,
+      verCadastros: false
     };
   },
   components: {
@@ -56,6 +63,8 @@ export default {
     MiSolidDoorExit,
     MiSolidMenuExpandLeft,
     MiMenuExpandRight,
+    BxSolidAddToQueue,
+    FlFilledTrayItemAdd
   },
   methods: {
     sideBar() {
@@ -69,6 +78,11 @@ export default {
       }
     },
   },
+  mounted() {
+    if (this.verCadastros == true) {
+      
+    }
+  }
 };
 </script>
 <style scoped>
@@ -81,7 +95,6 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  transition: 2s;
 }
 header {
   text-align: center;
@@ -130,6 +143,29 @@ svg {
   margin: 0px;
   padding: 0 !important;
   font-size: 40px;
+}
+button{
+  border: none;
+  background-color: #212529;
+  color: #fff;
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+button:hover{
+  background-color: #00a4f6;
+}
+.link_subMenu{
+  display: block;
+  padding: 10px 5px;
+  margin: 10px 0 0 20px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.link_subMenu:hover{
+  background-color: #2d9c3c !important;
 }
 </style>
 
