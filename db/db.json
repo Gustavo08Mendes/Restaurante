@@ -6,13 +6,6 @@
       "login": "admin",
       "senha": "admin",
       "status": "adm"
-    },
-    {
-      "id": "39a6",
-      "nome": "Thamyres Bessa",
-      "senha": "0311",
-      "login": "Thaamybesa",
-      "status": "adm"
     }
   ],
   "cards": [
@@ -58,50 +51,123 @@
   ],
   "item": [
     {
-      "id": "4db5",
+      "id": "50b8",
+      "nome": "Macarrão",
+      "infoemacoes": "Vem com molho",
+      "preco": "25,00R$",
+      "id_tipo": "93a0"
+    },
+    {
+      "id": "3314",
+      "nome": "pudim",
+      "infoemacoes": "De leite",
+      "preco": "12reais",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "fbd6",
+      "nome": "brigadeiro",
+      "infoemacoes": "Chocolate",
+      "preco": "8,00R$",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "7dde",
+      "nome": "wadwadaw",
+      "infoemacoes": "teste",
+      "preco": "12reais",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "b6fe",
+      "nome": "wadwadaw",
+      "infoemacoes": "teste",
+      "preco": "12reais",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "c845",
+      "nome": "banoff",
+      "infoemacoes": "teste",
+      "preco": "12reais",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "4f34",
+      "nome": "wadwadaw",
+      "infoemacoes": "teste",
+      "preco": "12reais",
+      "id_tipo": "0d81"
+    },
+    {
+      "id": "6c56",
+      "nome": "Thamyres",
+      "infoemacoes": "teste",
+      "preco": "12reais"
+    },
+    {
+      "id": "d50f",
       "nome": "Feijão",
-      "infoemacoes": "Prato de Feijão",
-      "preco": "12,00R$",
-      "tipo_item": "acompanhamento"
+      "infoemacoes": "De leite",
+      "preco": "25,00R$"
     },
     {
-      "id": "56a8",
-      "nome": "",
-      "infoemacoes": "",
-      "preco": "",
-      "tipo_item": "Pratos"
+      "id": "7e25",
+      "nome": "Thamyres",
+      "infoemacoes": "teste",
+      "preco": "12reais"
     },
     {
-      "id": "923f",
-      "nome": "",
-      "infoemacoes": "",
-      "preco": "",
-      "tipo_item": "acompanhamento"
+      "id": "bae5",
+      "nome": "Thamyres",
+      "infoemacoes": "teste",
+      "preco": "12reais"
     },
     {
-      "id": "ac4b",
-      "nome": "Macarão",
-      "infoemacoes": "acompanha molho",
-      "preco": "20,00R$",
-      "tipo_item": "Pratos"
+      "id": "4a02",
+      "nome": "Thamyres",
+      "infoemacoes": "teste",
+      "preco": "12reais",
+      "id_tipo": "a035"
     },
     {
-      "id": "b839",
-      "nome": "",
-      "infoemacoes": "",
-      "preco": "",
-      "tipo_item": ""
+      "id": "72fd",
+      "nome": "bolo de baunilha",
+      "infoemacoes": "O bolo é de baunilha",
+      "preco": "23,00R$",
+      "id_tipo": "0d81"
     },
     {
-      "id": "e059",
-      "nome": "",
-      "infoemacoes": "",
-      "preco": "",
-      "tipo_item": ""
+      "id": "3f8e",
+      "nome": "wadwadaw",
+      "infoemacoes": "De leite",
+      "preco": "12reais"
+    },
+    {
+      "id": "44b5",
+      "nome": "Coca",
+      "infoemacoes": "Refrigerante ",
+      "preco": "9,00R$",
+      "id_tipo": "ab45"
     }
   ],
   "tipo_item": [
-    {}
+    {
+      "id": "93a0",
+      "tipo_item": "Prato da casa"
+    },
+    {
+      "id": "0d81",
+      "tipo_item": "sobremesa"
+    },
+    {
+      "id": "a035",
+      "tipo_item": "combo"
+    },
+    {
+      "id": "ab45",
+      "tipo_item": "BEBIDA"
+    }
   ],
   "clientes": [
     {
