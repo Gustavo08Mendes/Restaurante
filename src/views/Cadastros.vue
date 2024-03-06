@@ -1,11 +1,12 @@
 <template>
-    <main>
+    <main id="main">
         <div>
             <Cadastro_itens v-show="cadastro_itens == true" />
             <Cadastro_adm v-show="cadastro_adm == true" />
         </div>
+        <Nav />
     </main>
-    <Nav />
+
 </template>
 
 <script>
@@ -43,3 +44,8 @@ export default {
 }
 </script>
 
+<style scoped>
+main{
+    transition: all 0.5s ease;
+} 
+</style>

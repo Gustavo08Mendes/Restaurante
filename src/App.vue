@@ -24,8 +24,8 @@ export default {
 <style>
 
   main{
-    margin-left: 260px;
     text-align: center;
+    transition: all 0.5s ease;
   }
 
 </style>

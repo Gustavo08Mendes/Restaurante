@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <h1>Cadastro de itens</h1>
-    <div>
-      <p></p>
-    </div>
+    <Alert v-show="alert == true" />
     <div class="form">
       <button @click="form_tipo" class="btn btn-primary">
         Exibir cadastro tipo itens
@@ -45,7 +43,7 @@
         </div>
         <div class="form-group">
           <label for="tipo_item">Tipo de item</label>
-          <select @click="buscar_itens" id="tipo_item" class="form-control">
+          <select @click="buscar_itens" id="tipo_item" class="form-control" required>
             <option selected>Escolha o tipo do item</option>
             <option
               v-for="tipo_item in itens"
@@ -68,6 +66,7 @@
 <script>
 import { AnOutlinedPlusCircle } from "@kalimahapps/vue-icons";
 import Cadastro_tipo from "./cadastro_tipo.vue";
+import Alert from "../alerts/sucesso.vue";
 export default {
   name: "cadastro_itens",
   data() {
@@ -77,11 +76,13 @@ export default {
       preco: "",
       itens: [],
       cadastro_tipo_item: true,
+      alert: false,
     };
   },
   components: {
     AnOutlinedPlusCircle,
     Cadastro_tipo,
+    Alert,
   },
   methods: {
     async criar_item(e) {
@@ -126,6 +127,12 @@ export default {
       this.infoemacoes = "";
       this.preco = "";
       this.tipo_item = "";
+      this.alert = true;
+
+      this.alert = true;
+      setTimeout(() => {
+        this.alert = false;
+      }, "5000");
     },
     async buscar_itens() {
       const req = await fetch("http://localhost:3000/tipo_item");

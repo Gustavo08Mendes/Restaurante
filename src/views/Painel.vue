@@ -1,15 +1,15 @@
 <template>
   <header></header>
 
-  <main>
+  <main id="main">
     <div class="container-saudacao">
       <h1>Bem vindo Administrador {{ nome }}</h1>
     </div>
     <div class="conatainer-cards">
       <Card />
     </div>
-  </main>
   <Nav />
+  </main>
 </template>
 
 <script>

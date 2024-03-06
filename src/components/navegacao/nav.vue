@@ -1,11 +1,11 @@
 <template>
   <div>
     <button id="btn-sideBar" @click="sideBar">
-      <MiSolidMenuExpandLeft v-if="verSideBar == true" /><MiMenuExpandRight
-        v-if="verSideBar == false"
-      />
+      <MiMenuExpandRight
+      v-if="verSideBar == true"
+      /><MiSolidMenuExpandLeft  v-else />
     </button>
-    <nav v-if="verSideBar == true" @mouseleave="verCadastros = false">
+    <nav @mouseleave="verCadastros = false" id="nav">
       <div>
         <header>
           <h1>Restaurante</h1>
@@ -69,14 +69,22 @@ export default {
   methods: {
     sideBar() {
       this.verSideBar = !this.verSideBar;
-      const btnSideBar = document.getElementById("btn-sideBar");
-      const main = document.getElementsByTagName("main");
-      if (this.verSideBar == false) {
-        btnSideBar.style.left = "30px";
+      const dragHandle = document.getElementById("btn-sideBar");
+      const sideMenu = document.getElementById("nav");
+      const main = document.getElementById("main");
+
+
+      if (this.verSideBar == true) {
+        dragHandle.style.left = "20px";
+        sideMenu.style.left = "-250px";
+        main.style.marginLeft = "0px";
       } else {
-        btnSideBar.style.left = "260px";
+        dragHandle.style.left = "260px";
+        sideMenu.style.left = "0px";
+        main.style.marginLeft = "260px";
       }
     },
+
   },
   mounted() {
     if (this.verCadastros == true) {
@@ -94,7 +102,8 @@ nav {
   padding: 0 20px;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -250px;
+  transition: left .5s ease;
 }
 header {
   text-align: center;
@@ -126,7 +135,7 @@ svg {
 #btn-sideBar {
   position: fixed;
   top: 20px;
-  left: 260px;
+  left: 20px;
   border: none;
   width: 40px;
   height: 40px;
@@ -138,6 +147,7 @@ svg {
   font-size: 60px;
   z-index: 999;
   border-radius: 5px;
+  transition: left 0.5s ease;
 }
 #btn-sideBar svg {
   margin: 0px;
@@ -167,5 +177,9 @@ button:hover{
 .link_subMenu:hover{
   background-color: #2d9c3c !important;
 }
+
+main{
+    transition: all 0.5s ease;
+} 
 </style>
 

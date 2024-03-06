@@ -51,39 +51,28 @@
   ],
   "item": [
     {
-      "id": "50c8",
-      "nome": "Bolo",
-      "infoemacoes": "Feito a Mão",
-      "preco": "12,00R$",
-      "id_tipo": "72cf"
-    },
-    {
-      "id": "e642",
-      "nome": "Bolos",
-      "infoemacoes": "VArioados tipos de bolos",
-      "preco": "22,00R$",
-      "id_tipo": "e93a"
-    },
-    {
-      "id": "5961",
-      "nome": "Teste",
+      "id": "bcca",
+      "nome": "Nelson",
       "infoemacoes": "teste",
       "preco": "12,00R$",
-      "id_tipo": "2fae"
+      "id_tipo": "a0d5"
+    },
+    {
+      "id": "6cee",
+      "nome": "Kendi",
+      "infoemacoes": "Feito a Mão",
+      "preco": "12,00R$",
+      "id_tipo": "d90c"
     }
   ],
   "tipo_item": [
     {
-      "id": "72cf",
+      "id": "a0d5",
       "tipo_item": "Sobremesa"
     },
     {
-      "id": "e93a",
-      "tipo_item": "Combo"
-    },
-    {
-      "id": "2fae",
-      "tipo_item": "Test"
+      "id": "d90c",
+      "tipo_item": "Saladas"
     }
   ],
   "clientes": [
@@ -92,6 +81,40 @@
       "id_usuario": 1,
       "mesa": "",
       "data": ""
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "adaa",
+      "nome": [
+        "Nelson",
+        "Nelson"
+      ]
+    },
+    {
+      "id": "fbce",
+      "nome": [
+        "Nelson"
+      ]
+    },
+    {
+      "id": "e8a5",
+      "nome": [
+        "Nelson"
+      ]
+    },
+    {
+      "id": "6887",
+      "nome": [
+        "Nelson",
+        "Nelson"
+      ]
+    },
+    {
+      "id": "6cb9",
+      "nome": [
+        "Kendi"
+      ]
     }
   ]
 }

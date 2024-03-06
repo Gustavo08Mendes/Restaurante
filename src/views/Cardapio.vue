@@ -1,5 +1,6 @@
 <template>
-  <main>
+  <main id="main">
+
     <div class="container">
       <h1>Cardápio</h1>
       <div class="botoes">
@@ -13,7 +14,11 @@
       </div>
       <div class="container_itens">
         <div>
-          <div v-for="(item, id) in itenss" :key="id">
+          <div
+            v-for="(item, id) in itenss"
+            :key="id"
+            @click="registraCarrinho(item.id)"
+          >
             <div class="itens">
               <div class="img">
                 <MiSolidBurger />
@@ -32,24 +37,29 @@
         </div>
       </div>
     </div>
+    <Carrinho :quant="quant" />
+    <Nav />
   </main>
-  <Nav />
+
 </template>
 
 <script>
 import Nav from "@/components/navegacao/nav.vue";
 import { MiSolidBurger } from "@kalimahapps/vue-icons";
+import Carrinho from "@/components/carrinho/carrinho.vue";
 
 export default {
   name: "Cardapio",
   components: {
     Nav,
     MiSolidBurger,
+    Carrinho,
   },
   data() {
     return {
       tipos_itens: [],
       itenss: [],
+      quant: 0
     };
   },
   methods: {
@@ -73,6 +83,29 @@ export default {
         preco: itenss.preco,
       }));
     },
+    registraCarrinho(item) {
+
+      console.log(item);
+
+      var itens_carrinho = JSON.parse(
+        localStorage.getItem("itens_carrinho")
+      ) || { id_itens: [] };
+
+      // Adiciona o novo item à lista
+      itens_carrinho.id_itens.push({
+        id: item
+      });
+
+      localStorage.setItem("itens_carrinho", JSON.stringify(itens_carrinho));
+
+      var lista_pessoas = JSON.parse(localStorage.getItem("itens_carrinho"));
+
+      console.log(lista_pessoas.id_itens.length);
+
+      this.quant = lista_pessoas.id_itens.length;
+
+      console.log("Salva com sucesso.");
+    },
   },
   mounted() {
     this.getPedidos();
@@ -81,6 +114,9 @@ export default {
 </script>
 
 <style scoped>
+main {
+  transition: all 0.5s ease;
+}
 button {
   border: none;
   margin: 0 10px;
@@ -106,7 +142,6 @@ button:hover {
   align-items: center;
 }
 
-
 p {
   padding: 0;
   margin: 0;
@@ -120,14 +155,15 @@ p {
   padding: 20px 10px;
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgb(146, 146, 146);
+  cursor: pointer;
 }
 
-.img{
-    width: 150px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.img {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .iten {
   display: flex;
@@ -139,20 +175,20 @@ p {
 .iten p:last-child {
   text-align: right;
 }
-.info{
-    height: 80%;
+.info {
+  height: 80%;
 }
-.info p{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.info p {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.itens_info{
-    width: 80%;
+.itens_info {
+  width: 80%;
 }
-svg{
-    font-size: 80px;
+svg {
+  font-size: 80px;
 }
 </style>
