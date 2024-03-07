@@ -1,6 +1,5 @@
 <template>
   <main id="main">
-
     <div class="container">
       <h1>Cardápio</h1>
       <div class="botoes">
@@ -19,6 +18,8 @@
             :key="id"
             @click="registraCarrinho(item.id)"
           >
+            <Alert v-show="alert == true" :texto="texto" />
+
             <div class="itens">
               <div class="img">
                 <MiSolidBurger />
@@ -37,29 +38,33 @@
         </div>
       </div>
     </div>
-    <Carrinho :quant="quant" />
+    <Carrinho :quant="quant" @limparCarrinho="limparCarrinho" @cleam="cleam" />
     <Nav />
   </main>
-
 </template>
 
 <script>
 import Nav from "@/components/navegacao/nav.vue";
 import { MiSolidBurger } from "@kalimahapps/vue-icons";
 import Carrinho from "@/components/carrinho/carrinho.vue";
+import Alert from "@/components/alerts/sucesso.vue";
 
 export default {
   name: "Cardapio",
+  emits: ["limparCarrinho"],
   components: {
     Nav,
     MiSolidBurger,
     Carrinho,
+    Alert,
   },
   data() {
     return {
       tipos_itens: [],
       itenss: [],
-      quant: 0
+      quant: 0,
+      alert: false,
+      texto: "",
     };
   },
   methods: {
@@ -83,8 +88,27 @@ export default {
         preco: itenss.preco,
       }));
     },
-    registraCarrinho(item) {
+    limparCarrinho() {
+      this.alert = true;
+      if (this.quant == 0) {
+        this.texto = "Não a nada no carrinho para limpar!";
+        var msg = document.getElementById("container-conteudo");
+        msg.style.backgroundColor = "rgb(255, 204, 146)";
+        msg.style.border = "2px solid rgb(255, 163, 57)";
+        return;
+      } else {
+        this.texto = "Carrinho limpo!";
+      }
 
+      setTimeout(() => {
+        this.alert = false;
+      }, 5000);
+      
+      localStorage.removeItem("itens_carrinho");
+
+      this.quant = 0;
+    },
+    registraCarrinho(item) {
       console.log(item);
 
       var itens_carrinho = JSON.parse(
@@ -93,18 +117,20 @@ export default {
 
       // Adiciona o novo item à lista
       itens_carrinho.id_itens.push({
-        id: item
+        id: item,
       });
 
       localStorage.setItem("itens_carrinho", JSON.stringify(itens_carrinho));
 
       var lista_pessoas = JSON.parse(localStorage.getItem("itens_carrinho"));
 
-      console.log(lista_pessoas.id_itens.length);
-
       this.quant = lista_pessoas.id_itens.length;
+      this.alert = true;
+      this.texto = "Item adicionado ao carrinho!";
 
-      console.log("Salva com sucesso.");
+      setTimeout(() => {
+        this.alert = false;
+      }, 5000);
     },
   },
   mounted() {
@@ -191,4 +217,5 @@ p {
 svg {
   font-size: 80px;
 }
+
 </style>

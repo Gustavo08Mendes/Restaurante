@@ -1,43 +1,47 @@
 <template>
-  <div class="container-carrinho" id="container-carrinho">
-    <div class="bnt_carrinho" id="bnt_carrinho">
-      <div class="container-bnts">
-        <div class="limpar" v-if="carrinho == true">
-          <CaClean @click="limparCarrinho" />
-        </div>
-        <div class="pedir" v-if="carrinho == true">
-          <BsBasket3Fill @click="pedir" />
-        </div>
-        <div @click="show_carrinho">
-          <div class="quant">
-            <p id="quant">{{ quant }}</p>
+  <main>
+    <Alert v-show="alert == true" :texto="texto" />
+    <div class="container-carrinho" id="container-carrinho">
+      <div class="bnt_carrinho" id="bnt_carrinho">
+        <div class="container-bnts">
+          <div class="limpar" v-if="carrinho == true">
+            <CaClean v-on="limpar" @click="$emit('limparCarrinho')" />
           </div>
-          <BsCartPlusFill v-if="carrinho == false" />
-          <BsCartXFill v-if="carrinho == true" />
-        </div>
-      </div>
-    </div>
-    <div class="conteudo">
-      <h1>Carrinho</h1>
-      <div class="container-itens">
-        <div>
-          <div
-            v-for="itens_carrinho in itens_carrinho"
-            :key="itens_carrinho"
-            class="teste"
-            v-show="itens_carrinho != ''"
-          >
-            <p v-show="itens_carrinho != ''">{{ itens_carrinho }}</p>
+          <div class="pedir" v-if="carrinho == true">
+            <BsBasket3Fill @click="pedir" />
+          </div>
+          <div v-on="$emit('cleam')" @click="show_carrinho">
+            <div class="quant">
+              <p id="quant">{{ quant }}</p>
+            </div>
+            <BsCartPlusFill v-if="carrinho == false" />
+            <BsCartXFill v-if="carrinho == true" />
           </div>
         </div>
       </div>
+      <div class="conteudo">
+        <h1>Carrinho</h1>
+        <div class="container-itens">
+          <div>
+            <div
+              v-for="itens_carrinho in itens_carrinho"
+              :key="itens_carrinho"
+              class="teste"
+              v-show="itens_carrinho != ''"
+            >
+              <p v-show="itens_carrinho != ''">{{ itens_carrinho }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 import { BsCartPlusFill, BsCartXFill, CaClean } from "@kalimahapps/vue-icons";
 import { BsBasket3Fill } from "@kalimahapps/vue-icons";
+import Alert from "../alerts/sucesso.vue";
 export default {
   name: "Carrinho",
   components: {
@@ -45,11 +49,16 @@ export default {
     BsCartXFill,
     BsBasket3Fill,
     CaClean,
+    Alert,
   },
   data() {
     return {
       carrinho: false,
       itens_carrinho: [],
+      alert: false,
+      limpar: {
+        click: this.limpar_Carrinho,
+      },
     };
   },
   props: {
@@ -93,7 +102,26 @@ export default {
         this.BuscarItens();
       }
     },
+    cleam() {
+      this.quant;
+    },
     async pedir() {
+      var quantidade = document.getElementById("quant").textContent;
+
+      console.log(quantidade);
+
+      if (quantidade != 0) {
+        this.alert = true;
+        this.texto = "Pedido encaminado para a cozinha!";
+      } else {
+        this.alert = true;
+        this.texto = "Carrinho vazio! Adicione itens ao carrinho para pedir!";
+        setTimeout(() => {
+          this.alert = false;
+        }, 5000);
+        return;
+      }
+
       var nome = this.itens_carrinho;
 
       for (let i = 0; i < nome.length; i++) {
@@ -110,13 +138,17 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: dataJson,
       });
-      this.limparCarrinho();
-    },
-    limparCarrinho() {
+
+      setTimeout(() => {
+        this.alert = false;
+      }, 5000);
+
       localStorage.removeItem("itens_carrinho");
-      this;
+
+      this.limpar_Carrinho();
+    },
+    limpar_Carrinho() {
       this.itens_carrinho = [];
-      // this.quant = 0;
     },
   },
 
@@ -132,7 +164,7 @@ p {
   display: flex;
   justify-content: center;
   font-size: 40px;
-  width: 100%;
+  width: 98vw;
   color: #fff;
   z-index: 10;
   background-color: #212529;
@@ -204,6 +236,5 @@ svg {
   transition: all 0.5s ease;
   margin: 20px 20px;
   z-index: 10;
-  width: min-content;
 }
 </style>
