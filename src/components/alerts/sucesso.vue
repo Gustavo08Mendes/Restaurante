@@ -1,6 +1,6 @@
 <template>
-    <div class="container-sucesso">
-        <div class="container-conteudo">
+    <div v-show="alert == true" class="container-sucesso" id="container-sucesso">
+        <div class="container-conteudo" id="container-conteudo">
             <div class="imagem">
                 <GlStatusSuccess />
             </div>
@@ -8,7 +8,7 @@
                 <p>{{ texto }}</p>
             </div>
             <div class="fechar">
-                <button @click="$emit('fechar')" ><BsXLg /></button>
+                <button @click="fechar" ><BsXLg /></button>
             </div>
         </div>
     </div>
@@ -22,14 +22,17 @@ export default {
         GlStatusSuccess,
         BsXLg
     },
+    props: {
+        texto: String,
+    },
     data() {
         return {
-            texto: "Registro feito com sucesso!",
+            alert: false,
         }
     },
     methods: {
         fechar() {
-            
+            this.alert = !this.alert
         }
     }
 }
@@ -45,6 +48,7 @@ export default {
         padding: 10px 5px;
         border: 2px solid rgb(197, 255, 197);
         border-radius: 7px;
+        transition: all 2s ease;
    }
     button{
         border: none;
