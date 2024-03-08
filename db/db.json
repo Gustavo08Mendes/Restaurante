@@ -6,6 +6,13 @@
       "login": "admin",
       "senha": "admin",
       "status": "adm"
+    },
+    {
+      "id": "c37d",
+      "nome": "gustavo",
+      "senha": "admin",
+      "login": "admin",
+      "status": "adm"
     }
   ],
   "cards": [
@@ -85,36 +92,11 @@
   ],
   "pedidos": [
     {
-      "id": "adaa",
-      "nome": [
-        "Nelson",
-        "Nelson"
-      ]
-    },
-    {
-      "id": "fbce",
+      "id": "1a68",
       "nome": [
         "Nelson"
-      ]
-    },
-    {
-      "id": "e8a5",
-      "nome": [
-        "Nelson"
-      ]
-    },
-    {
-      "id": "6887",
-      "nome": [
-        "Nelson",
-        "Nelson"
-      ]
-    },
-    {
-      "id": "6cb9",
-      "nome": [
-        "Kendi"
-      ]
+      ],
+      "mesa": "12"
     }
   ]
 }
