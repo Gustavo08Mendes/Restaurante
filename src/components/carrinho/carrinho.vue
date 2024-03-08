@@ -21,6 +21,21 @@
       </div>
       <div class="conteudo">
         <h1>Carrinho</h1>
+        <div class="container col-md-2">
+          <form>
+            <div class="form-group">
+              <label for="tipo">Mesa</label>
+              <input
+                type="text"
+                class="form-control"
+                name="tipo"
+                v-model="mesa"
+                id="tipo"
+                required
+              />
+            </div>
+          </form>
+        </div>
         <div class="container-itens">
           <div>
             <div
@@ -127,6 +142,7 @@ export default {
       for (let i = 0; i < nome.length; i++) {
         const data = {
           nome: nome,
+          mesa: this.mesa,
         };
 
         console.log(data);
@@ -146,6 +162,7 @@ export default {
       localStorage.removeItem("itens_carrinho");
 
       this.limpar_Carrinho();
+      this.mesa = "";
     },
     limpar_Carrinho() {
       this.itens_carrinho = [];
