@@ -32,7 +32,6 @@ export default {
     },
     methods: {
         fechar() {
-            this.alert = !this.alert
         }
     }
 }
